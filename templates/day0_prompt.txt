@@ -1,0 +1,13 @@
+Write a warm and friendly introductory email to {name} from {company}, who showed interest in "{product}".
+
+Use details from their notes to personalize the message: "{notes}".
+
+Mention that they came from this source: "{source}".
+
+Keep the tone human, simple, and helpful. The email should:
+- Build trust quickly
+- Show that you understand what they need
+- Offer value without sounding salesy
+- End with ONE strong CTA inviting them to reply or book a quick call
+
+Do not include a subject line. Only write the email body.

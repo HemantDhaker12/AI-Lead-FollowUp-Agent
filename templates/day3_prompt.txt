@@ -1,0 +1,12 @@
+Write a Day 3 follow-up email to {name} from {company} about their interest in "{product}".
+
+Use "{notes}" to make the email personal and relevant.
+
+The email should include:
+- Soft social proof (e.g., “many clients like you…”)
+- A gentle reminder that you reached out earlier
+- Offer two possible time slots for a quick call
+- A clear CTA to confirm one of the times or suggest another
+
+Keep the tone respectful and helpful.  
+Do not include a subject line. Only write the email body.

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Dynamic Lead Data – Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Define custom coffee/brown shades
+                        'coffee-light': '#F5EFE6', 
+                        'coffee-medium': '#C8AE7D', // A nice mid-tone brown/gold
+                        'coffee-dark': '#65451F', // Deep, rich brown
+                        'coffee-accent': '#765827', // Darker accent
+                        'brown-text': '#3C2A21', // Very dark brown for text
+                        'success': '#4D7C0F', // Olive-green for success (pairs well with brown)
+                        'pending': '#D97706', // Amber for awaiting action
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Geometric background with coffee-light grid */
+        .geometric-bg {
+            background-color: #fcfcfc; /* Near white background */
+            background-image: linear-gradient(to right, #F5EFE6 1px, transparent 1px),
+                              linear-gradient(to bottom, #F5EFE6 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .animate-slide-in {
+            animation: slideIn 0.7s ease-out forwards;
+        }
+        /* Corrected and cleaned up keyframes spacing */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to  { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-brown-text min-h-screen geometric-bg">
+
+    <div class="max-w-6xl mx-auto py-8 sm:py-12 px-4 sm:px-6">
+
+        <header class="mb-8 sm:mb-10 p-4 sm:p-6 bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-xl border-t-4 border-coffee-accent animate-slide-in">
+            <div class="flex flex-col sm:flex-row items-start justify-between">
+                <div>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-coffee-dark flex items-center">
+                        <span class="mr-2 sm:mr-3 text-4xl sm:text-5xl text-coffee-medium">📊</span> Dynamic Lead Data <span class="text-lg sm:text-xl ml-2 font-light text-gray-400">(Demo)</span>
+                    </h1>
+                    <p class="text-brown-text mt-2 text-base sm:text-lg font-light leading-relaxed">
+                        **AI-Powered Lead Follow-Up System**
+                        <br>
+                        A smart automation tool that reads leads, tracks their follow-up stage, generates personalized AI emails, and updates the system automatically.
+                    </p>
+                </div>
+
+                <div class="text-sm text-gray-500 italic pt-2 sm:pt-2 mt-2 sm:mt-0">
+                    Demo Preview
+                </div>
+            </div>
+        </header>
+
+        <div id="summary-cards" class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10"></div>
+
+        <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg mb-8 border border-coffee-light">
+            <p class="text-brown-text font-semibold mb-2">Overall Completion Rate</p>
+            <div class="w-full bg-coffee-light rounded-full h-4 overflow-hidden">
+                <div id="progress-bar"
+                     class="h-4 bg-success rounded-full transition-all duration-700 shadow-inner"
+                     style="width: 0%;">
+                </div>
+            </div>
+            <p id="progress-text" class="text-right mt-1 text-sm text-gray-600">0% Completed</p>
+        </div>
+
+        <div class="bg-white p-4 sm:p-8 rounded-xl shadow-2xl overflow-x-auto border border-coffee-light">
+            <h2 class="text-xl sm:text-2xl font-bold mb-4 text-coffee-dark border-b-2 border-coffee-light pb-2">Recent Lead Activity</h2>
+
+            <div class="min-w-full inline-block align-middle">
+                <table class="min-w-full divide-y divide-coffee-light">
+                    <thead class="bg-coffee-light/50">
+                        <tr>
+                            <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-coffee-dark uppercase tracking-wider whitespace-nowrap">
+                                Name
+                            </th>
+                            <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-coffee-dark uppercase tracking-wider whitespace-nowrap">
+                                Source
+                            </th>
+                            <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-coffee-dark uppercase tracking-wider whitespace-nowrap">
+                                Status
+                            </th>
+                            <th class="px-3 sm:px-6 py-3 text-left text-xs font-medium text-coffee-dark uppercase tracking-wider whitespace-nowrap">
+                                Last Follow-up
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="recent-activity" class="bg-white divide-y divide-coffee-light"></tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="mt-8 sm:mt-10 p-4 sm:p-8 bg-coffee-light rounded-xl shadow-lg border-l-4 border-coffee-medium">
+            <h3 class="text-xl sm:text-2xl font-bold text-coffee-dark mb-4">What this project does</h3>
+            <p class="text-brown-text mb-6 text-sm sm:text-base">
+                This system helps businesses manage leads and automate follow-ups with AI-generated emails.
+                It ensures every lead receives timely communication across Day 0, Day 1, Day 3, and Day 7 — increasing conversions without needing a sales person.
+            </p>
+
+            <h4 class="text-lg sm:text-xl font-semibold text-coffee-accent mb-3">Key Capabilities</h4>
+            <ul class="list-disc pl-6 text-brown-text space-y-2 text-sm sm:text-base">
+                <li><strong class="text-coffee-dark">📥 Automatically reads leads</strong> from Google Sheets</li>
+                <li><strong class="text-coffee-dark">📊 Displays them</strong> in a modern dashboard</li>
+                <li><strong class="text-coffee-dark">🤖 Generates personalized follow-up emails</strong> using AI (Ollama/OpenRouter)</li>
+                <li><strong class="text-coffee-dark">✉️ Sends emails automatically</strong> via Gmail</li>
+                <li><strong class="text-coffee-dark">🔁 Tracks follow-up progress</strong> for each lead</li>
+                <li><strong class="text-coffee-dark">🚦 Shows lead status visually</strong> (New → Day1 → Day3 → Completed)</li>
+                <li><strong class="text-coffee-dark">🧠 Self-updates daily</strong> to keep follow-ups accurate</li>
+                <li><strong class="text-coffee-dark">🛠 Manual override tools</strong> for custom follow-ups</li>
+                <li><strong class="text-coffee-dark">📈 Completion progress bar</strong> & lead activity timeline</li>
+            </ul>
+
+            <h4 class="text-lg sm:text-xl font-semibold text-coffee-accent mt-6 mb-3">Who it is for</h4>
+            <ul class="list-disc pl-6 text-brown-text space-y-2 text-sm sm:text-base">
+                <li>Marketing agencies</li>
+                <li>Freelancers & Solopreneurs</li>
+                <li>SaaS founders</li>
+                <li>Sales teams</li>
+                <li>Coaches/consultants</li>
+                <li>Anyone who wants to automate follow-ups without paying for expensive CRM tools.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        // Placeholder data to prevent errors if demo-data.json is not present
+        const defaultData = {
+            total_leads: 0,
+            awaiting_followup: 0,
+            completed: 0,
+            progress: 0,
+            recent_activity: []
+        };
+
+        fetch("demo-data.json")
+            .then(res => res.json())
+            .catch(() => defaultData) // Use default data on fetch failure
+            .then(data => {
+                // Use data if available, otherwise use defaultData
+                const finalData = data || defaultData; 
+
+                // --- SUMMARY CARDS ---
+                document.getElementById("summary-cards").innerHTML = `
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-coffee-accent hover:shadow-xl transition transform hover:translate-y-[-2px]">
+                        <p class="text-sm font-medium text-gray-500">Total Leads</p>
+                        <p class="text-3xl font-bold text-coffee-dark mt-1">${finalData.total_leads}</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-pending hover:shadow-xl transition transform hover:translate-y-[-2px]">
+                        <p class="text-sm font-medium text-gray-500">Awaiting Follow-up</p>
+                        <p class="text-3xl font-bold text-pending mt-1">${finalData.awaiting_followup}</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-success hover:shadow-xl transition transform hover:translate-y-[-2px]">
+                        <p class="text-sm font-medium text-gray-500">Completed</p>
+                        <p class="text-3xl font-bold text-success mt-1">${finalData.completed}</p>
+                    </div>
+                `;
+
+                // --- PROGRESS BAR ---
+                document.getElementById("progress-bar").style.width = finalData.progress + "%";
+                document.getElementById("progress-text").textContent = `${finalData.progress}% Completed`;
+
+                // --- RECENT ACTIVITY ---
+                let rows = "";
+                finalData.recent_activity.forEach(item => {
+                    let badge = "";
+
+                    if (item.status.includes("Waiting")) {
+                        badge = `<span class="px-2 sm:px-3 py-1 text-xs font-semibold rounded-full bg-pending/10 text-pending border border-pending/50 whitespace-nowrap">${item.status}</span>`;
+                    } else if (item.status.includes("Completed")) {
+                        badge = `<span class="px-2 sm:px-3 py-1 text-xs font-semibold rounded-full bg-success/10 text-success border border-success/50 whitespace-nowrap">${item.status}</span>`;
+                    } else {
+                        badge = `<span class="px-2 sm:px-3 py-1 text-xs font-semibold rounded-full bg-coffee-medium/10 text-coffee-medium border border-coffee-medium/50 whitespace-nowrap">${item.status}</span>`;
+                    }
+
+                    rows += `
+                        <tr class="hover:bg-coffee-light/40 transition">
+                            <td class="px-3 sm:px-6 py-4 font-medium text-coffee-dark whitespace-nowrap">${item.name}</td>
+                            <td class="px-3 sm:px-6 py-4 text-sm text-gray-600 whitespace-nowrap">${item.source}</td>
+                            <td class="px-3 sm:px-6 py-4">${badge}</td>
+                            <td class="px-3 sm:px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${item.last_followup}</td>
+                        </tr>
+                    `;
+                });
+
+                document.getElementById("recent-activity").innerHTML = rows;
+            })
+            .catch(error => console.error("Error loading or processing data:", error));
+    </script>
+
+</body>
+</html>

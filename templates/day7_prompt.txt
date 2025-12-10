@@ -1,0 +1,12 @@
+Write a friendly and respectful Day 7 follow-up email to {name} regarding their interest in "{product}".
+
+Use "{notes}" subtly to show you remember their needs.
+
+The email should:
+- Acknowledge that they may be busy
+- Offer one final helpful tip, resource, or insight
+- Politely mention that you will close the file if there’s no reply
+- Reassure them they can reach out anytime in the future
+
+Tone must be gentle, professional, and never pushy.  
+Do not include a subject line. Only write the email body.

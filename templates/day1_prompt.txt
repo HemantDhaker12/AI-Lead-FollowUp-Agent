@@ -1,0 +1,12 @@
+Write a polite and friendly Day 1 follow-up email to {name} from {company} regarding their interest in "{product}".
+
+Reference that you emailed them yesterday.  
+Use details from their notes to personalize the message: "{notes}".
+
+Keep it short and valuable:
+- Reconfirm the benefit of the solution
+- Show that you're available to help
+- Ask: "Would you like to book a quick 10-minute call?"
+
+Keep it natural and conversational.  
+Do not include a subject line. Only write the email body.

@@ -1,0 +1,20 @@
+{
+  "total_leads": 12,
+  "awaiting_followup": 7,
+  "completed": 5,
+  "progress": 41.6,
+  "recent_activity": [
+    {
+      "name": "Hemant Dhaker",
+      "source": "Instagram DM",
+      "status": "Waiting for Day 3",
+      "last_followup": "2025-12-09"
+    },
+    {
+      "name": "Himanshu",
+      "source": "Instagram DM",
+      "status": "Completed",
+      "last_followup": "2025-12-07"
+    }
+  ]
+}
